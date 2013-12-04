@@ -107,6 +107,36 @@ class vir_curex():
 			self.update()
 		return(self.sell_)
 
+class window():
+
+	def __init__(self,size):
+		self.elements = []
+		for i in range(0,size):
+			self.elements.append(0)
+	
+	def push(self,item):
+		for i in range(len(self.elements)-1,0,-1):
+			self.elements[i] = self.elements[i-1]
+		self.elements[0] = item
+	
+	def average(self):
+		self.total = 0.0
+		for item in self.elements:
+			self.total = self.total + item
+
+		avg = self.total/len(self.elements)
+
+		return(avg)
+
+	def __str__(self):
+		return(srt(self.elements))
+
+	def __repr__(self):
+		return(repr(self.elements))
+	
+	def __getitem__(self,index):
+		return(self.elements[index])
+
 btce = btc_e()
 bitfinex = bit_finex()
 cryptotrade = crypto_trade()
