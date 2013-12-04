@@ -115,14 +115,13 @@ cryptotrade = crypto_trade()
 
 def tick():
 	log = open("ltc.log","a")
-	log.write("%s |" % (time.time()),)
-	log.write("BTC-E: %s/%s |" % (btce.buy(),btce.sell()),)
-	log.write("BitFinex: %s/%s |" % (bitfinex.buy(),bitfinex.sell()),)
-	log.write("CryptoTrader: %s/%s |" % (cryptotrade.buy(),cryptotrade.sell()),)
+	log.write("%s |" % (int(time.time())),) #less jittery output
+	log.write("BTC-E: %.4f/%.4f |" % (btce.buy(),btce.sell()),)
+	log.write("BitFinex: %.4f/%.4f |" % (bitfinex.buy(),bitfinex.sell()),)
+	log.write("CryptoTrader: %.4f/%.4f |" % (cryptotrade.buy(),cryptotrade.sell()),)
 #	print "VirCurex %s/%s" % (vircurex.buy(),vircurex.sell()),
 	log.write("\n")
 	log.close()
-	print "Tick"
 
 if __name__ == "__main__":
 
